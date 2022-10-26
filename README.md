@@ -13,13 +13,13 @@ from neuralml import rede
 ```
 ## Iniciando a Rede e adicinando camadas de neuronios
 Para que possamos iniciar a rede basta instancia a classe `RedeNeural()` é dentro dela que vamos fazer todas as configurações nessesarias para a nossa rede
-```
+```python
 rede_neural = rede.RedeNeural()
 ```
 As camadas são adicionadas pela função `addNeuronio` da seguinter forma, devemos pensar que estamos adicinando não as camadas e sim as ligaões entre elas se fizermo 
 `addNeuronio(2,3)` estamos dizendo que nossa rede tem 2 neuronios na camada de entrada e 3 de saida, mas se continuarmos adicionando ligação entre camada então a camada de saida passa a ser a ultima a ser adicionada segue o exemplo:
 
-```
+```python
 rede_neural.addNeuronio(2,5)
 rede_neural.addNeuronio(5,4)
 rede_neural.addNeuronio(4,1)
