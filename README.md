@@ -79,7 +79,7 @@ rede_neural.ativador = rede.RedeNeural.tanh
 
 rede_neural.addNeuronio(2,5)
 rede_neural.addNeuronio(5,1)
-rede_neural.open()
+rede_neural.open(nome="teste")
 
 print(rede_neural.predict([1,1]))
 ```
