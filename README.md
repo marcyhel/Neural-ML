@@ -53,18 +53,18 @@ Treinando e salvando
 ```python
 from neuralml import rede
 
-redeneural = rede.RedeNeural()
-redeneural.ativador = rede.RedeNeural.tanh
+rede_neural = rede.RedeNeural()
+rede_neural.ativador = rede.RedeNeural.tanh
 
-redeneural.addNeuronio(2,5)
-redeneural.addNeuronio(5,1)
+rede_neural.addNeuronio(2,5)
+rede_neural.addNeuronio(5,1)
 
 entrada = [[0,0],[0,1],[1,0],[1,1]]
 saida = [[0],[0],[1],[1]]
 
-redeneural.treinar(entrada,saida,epoc=6000)
+rede_neural.treinar(entrada,saida,epoc=6000)
 
-print(redeneural.predict([1,1]))
+print(rede_neural.predict([1,1]))
 
 rede_neural.save(nome="teste")
 ```
