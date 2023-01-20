@@ -189,7 +189,7 @@ class RedeNeural:
 			#print('pronto')
 			#print(aux.dado)
 			
-		return aux.dado
+		return aux
 
 	def predictRecore(self,arr):
 		aux=0
