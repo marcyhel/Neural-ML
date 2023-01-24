@@ -64,7 +64,7 @@ saida = [[0],[0],[1],[1]]
 
 rede_neural.treinar(entrada,saida,epoc=6000)
 
-print(rede_neural.predict([1,1]))
+print(rede_neural.predict([1,1]).dado)
 
 rede_neural.save(nome="teste")
 ```
@@ -81,5 +81,5 @@ rede_neural.addNeuronio(2,5)
 rede_neural.addNeuronio(5,1)
 rede_neural.open(nome="teste")
 
-print(rede_neural.predict([1,1]))
+print(rede_neural.predict([1,1]).dado)
 ```
