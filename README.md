@@ -60,7 +60,7 @@ rede_neural.addNeuronio(2,5)
 rede_neural.addNeuronio(5,1)
 
 entrada = [[0,0],[0,1],[1,0],[1,1]]
-saida = [[0],[0],[1],[1]]
+saida = [[0],[1],[1],[0]]
 
 rede_neural.treinar(entrada,saida,epoc=6000)
 
