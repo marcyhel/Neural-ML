@@ -116,8 +116,7 @@ class RedeNeural:
 		texto = []  #declaro um vetor
 		matriz = [] #declaro um segundo vetor
 		texto = arquivo.readlines() #quebra as linhas do arquivo em vetores 
-		#print("vetor texto -> ",texto) #aqui eu mostro
-		#print("")
+		
 
 		for i in range(len(texto)):          #esse for percorre a posições dp vetor texto
 			matriz.append(texto[i].split())  #aqui eu quebro nos espasos das palavras
@@ -126,10 +125,7 @@ class RedeNeural:
 			for i in range(len(matriz[0])):
 				matriz[x][i]=float(matriz[x][i])
 				#print(matriz[0][0])
-		#print("vetor matriz -> ",matriz) #mostra o vertor com um conjunto de vetores
-		#print("")
-		#for i in range(len(texto)):          #mostra quedrando em linhas
-		#    print(matriz[i])  
+		
 		return matriz
 	def addNeuronio(self,num1,num2):
 		neu=Matriz(num2,num1)
@@ -184,10 +180,7 @@ class RedeNeural:
 				aux=self.map_ativar(aux)
 			
 			self.neuronio_pronto.append(aux)
-			#print('conect')
-			#print(self.neuronios[i].dado)
-			#print('pronto')
-			#print(aux.dado)
+			
 			
 		return aux
 
@@ -235,10 +228,7 @@ class RedeNeural:
 			aux=Matriz.soma(aux,self.bias[i])
 			aux=self.map_ativar(aux)
 			self.neuronio_pronto.append(aux)
-			#print('conect')
-			#print(self.neuronios[i].dado)
-			#print('pronto')
-			#print(aux.dado)
+			
 		#print("---------")
 		return aux
 	def open(self,nome='none'):
@@ -298,107 +288,4 @@ class RedeNeural:
 				delta=Matriz.multiplica(gradiente,neu_ante)
 			
 				self.neuronios[i]=Matriz.soma(self.neuronios[i],delta)
-'''
-rede=RedeNeural()
 
-rede.ativador=RedeNeural.tanh
-#print(rede.ativador(-5))
-rede.addNeuronio(2,3)
-rede.addNeuronio(3,5)
-rede.addNeuronio(5,4)
-print("primeira")
-
-print(rede.predictRecore([0,0]).dado)
-print("------")
-print(rede.predictRecore([0,0]).dado)
-print("------")
-'''
-#rede.limparRecorre()
-#print("d")
-#rede.predictRecore([1,0]).dado
-#rede.predictRecore([0,1]).dado
-'''
-entrada=[[0,0,0,0,0,0,0,0,0],[0,1,0,0,0,-1,0,1,0],[1,0,-1,1,1,1,0,0,-1],[0,1,1,1,-1,1,-1,0,1]]
-saida = [[1,0,0,0,0,0,0,0,0],[0,1,0,0,0,0,0,0,0],[0,0,1,0,0,0,0,0,0],[0,0,0,1,0,0,0,0,0]]
-rede=RedeNeural()
-rede.addLearningRate(0.001)
-rede.ativador=RedeNeural.tanh
-#print(rede.ativador(-5))
-rede.addNeuronio(9,10)
-rede.addNeuronio(10,10)
-rede.addNeuronio(10,10)
-rede.addNeuronio(10,10)
-rede.addNeuronio(10,9)
-print(rede.sigmoid(5))
-print(rede.deriva_sigmoid(5))
-index=0
-
-def maior(dado):
-	aux=dado[0][0]
-	index=0
-	for i in range(len(dado)):
-		if(dado[i][0]>aux):
-			aux=dado[i][0]
-			index=i
-	return index
-
-r1=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-r2=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-r3=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-r4=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-for i in range(100000000):
-
-	if (index==4):
-		index=0
-	rede.treinar(entrada[index],saida[index])
-	#nn.train(dataset.inputs[index], dataset.outputs[index]);
-	index +=1
-	if(i%10000==0):
-		#os.system('cls')
-		print(i)
-		r1=rede.predict([0,1,1,1,-1,1,-1,0,1]).dado
-		r2=rede.predict([1,0,-1,1,1,1,0,0,-1]).dado
-		r3=rede.predict([0,1,0,0,0,-1,0,1,0]).dado
-		r4=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-		print(maior(r1))
-		print(maior(r2))
-		print(maior(r3))
-		print(maior(r4))
-		print(rede.predict(r1).dado)
-		print(rede.predict(r2).dado)
-		print(rede.predict(r3).dado)
-		print(rede.predict(r4).dado)
-
-	#print(rede.predict([0, 0]).dado[0][0])
-	if (maior(r1)==3 and maior(r2)==2 and maior(r3)== 1 and maior(r4)==0):
-		#train = false;
-		print("terminou")
-		print(i)
-		
-
-		r1=rede.predict([0,1,1,1,-1,1,-1,0,1]).dado
-		r2=rede.predict([1,0,-1,1,1,1,0,0,-1]).dado
-		r3=rede.predict([0,1,0,0,0,-1,0,1,0]).dado
-		r4=rede.predict([0,0,0,0,0,0,0,0,0]).dado
-		print(maior(r1))
-		print(maior(r2))
-		print(maior(r3))
-		print(maior(r4))
-		print(rede.predict(r1).dado)
-		print(rede.predict(r2).dado)
-		print(rede.predict(r3).dado)
-		print(rede.predict(r4).dado)
-
-
-		while True:
-			entre=[]
-			for i in range(9):
-				entre.append(int(input('{}: '.format(i))))
-			print(entre)
-			r1=rede.predict(entre).dado
-			print(maior(r1))
-			print(rede.predict(entre).dado)
-		
-		break
-'''
-#print(rede.predict([2,2,3,1,2]).dado)"""
